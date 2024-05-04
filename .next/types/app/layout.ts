@@ -1,4 +1,4 @@
-// File: C:\Users\Kurst\Downloads\Picture\TechWave-React-NextJs-V-0.1.2\TechWave-React-NextJs\app\layout.js
+// File: C:\Users\Kurst\Downloads\Azure\DreamVision\app\layout.js
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

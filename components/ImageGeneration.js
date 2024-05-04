@@ -91,7 +91,7 @@ export default function ImageGeneration() {
       setIsLoading(true); // Start loading
 
       const response = await axios.post(
-        "https://dreamer-4rxj.onrender.com/image-generate-model-preloaded/",
+        "https://dreamvison.onrender.com/image-generate-model-preloaded/",
         { message: imageSrc }, // Pass the image source URL to the backend
         { responseType: "blob" } // Important for handling binary data
       );
@@ -114,7 +114,7 @@ export default function ImageGeneration() {
     const formData = new FormData();
     formData.append("file", file);
     try {
-      const response = await axios.post("https://dreamer-4rxj.onrender.com/image-generate-model/", formData,{responseType: "blob", // Important for handling binary data
+      const response = await axios.post("https://dreamvison.onrender.com/image-generate-model/", formData,{responseType: "blob", // Important for handling binary data
         }
       );
 
@@ -221,11 +221,13 @@ export default function ImageGeneration() {
           <div className="generation_history">
 
           <div className="viewer_object">
-          {modelUrl && (
-            <div className="viewer3">
-              <ModelViewer modelUrl={modelUrl} />
-            </div>
-          )}
+          {isLoading ? (
+                <div id="loader"></div>
+              ) : (
+                modelUrl && (
+                    <ModelViewer modelUrl={modelUrl} />
+                )
+              )}
           </div>
         </div>
         </div>

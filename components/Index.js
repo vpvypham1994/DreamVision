@@ -23,18 +23,7 @@ export default function Index() {
             {/* Interactive List Shortcode */}
             <div className="techwave_fn_interactive_list">
               <ul>
-                <li>
-                  <div className="item">
-                    <Link href="/image-generation">
-                      <span className="icon">
-                        <img src="svg/image.svg" alt="" className="fn__svg" />
-                      </span>
-                      <h2 className="title">Image-To-3D</h2>
-                      <p className="desc">Generate a 3D model from an image.</p>
-                      <span className="arrow"><img src="svg/arrow.svg" alt="" className="fn__svg" /></span>
-                    </Link>
-                  </div>
-                </li>
+               
                 <li>
                   <div className="item">
                     <Link href="/ai-chat-bot">
@@ -43,6 +32,18 @@ export default function Index() {
                       </span>
                       <h2 className="title">Text-To-3D</h2>
                       <p className="desc">Generate a 3D model from text description. </p>
+                      <span className="arrow"><img src="svg/arrow.svg" alt="" className="fn__svg" /></span>
+                    </Link>
+                  </div>
+                </li>
+                <li>
+                  <div className="item">
+                    <Link href="/image-generation">
+                      <span className="icon">
+                        <img src="svg/image.svg" alt="" className="fn__svg" />
+                      </span>
+                      <h2 className="title">Image-To-3D</h2>
+                      <p className="desc">Generate a 3D model from an image.</p>
                       <span className="arrow"><img src="svg/arrow.svg" alt="" className="fn__svg" /></span>
                     </Link>
                   </div>

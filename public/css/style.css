@@ -7192,7 +7192,8 @@ a.fn__like.no_border .fn__svg{
 	justify-content: 'center';
 	align-items: 'center';
 	overflow: 'hidden';
-
+	display: grid;
+	place-items: center;
 }
 
 @media only screen and (max-width: 600px) {
@@ -7214,7 +7215,6 @@ a.fn__like.no_border .fn__svg{
 	background-color: whitesmoke;
 	overflow: 'hidden';
 	justify-content: 'center';
-
 }
 
 .container {
@@ -7255,3 +7255,41 @@ a.fn__like.no_border .fn__svg{
 .image-container:last-child {
 	margin-right: 0;
   }
+
+
+
+  #loader {
+	width: 8rem;
+	height: 8rem;
+	position: relative;
+	border-radius: 11px;
+	animation: spin 1s ease infinite;
+	
+	&::before, &::after {
+		content: '';
+		width: 40%;
+		height: 40%;
+		display: block;
+		position: absolute;
+		border-radius: 9px;
+	}
+	&::before {
+		top: 3px;
+		left: 3px;
+		background: #7c5fe3;
+	}
+	&::after {
+		bottom: 3px;
+		right: 3px;
+		background: #7c5fe3;
+	}
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(135deg);
+	}
+	to {
+		transform: rotate(495deg);
+	}
+}

@@ -11,7 +11,7 @@ function ModelViewer({ modelUrl }) {
   const gltf = useLoader(GLTFLoader, modelUrl);
 
   return (
-    <Canvas colorManagement style={{ background: "grey" }} key={modelUrl}>
+    <Canvas colormanagement style={{ background: "grey" }} key={modelUrl}>
     <ambientLight intensity={2} />
     <directionalLight position={[-20, 5, 2]} intensity={8}  />
     <directionalLight position={[20, 5, 2]} intensity={4} />
@@ -33,6 +33,7 @@ export default function AIChatbot() {
   const [imageUrl, setImageUrl] = useState("");
   const [modelUrl, setModelUrl] = useState(null);
   const [promptText, setPromptText] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleTextChange = (event) => {
     setPromptText(event.target.value);
@@ -40,12 +41,13 @@ export default function AIChatbot() {
 
   
   const generate3DModel = async () => {
+    setIsLoading(true);
     const promptData = { message: promptText };
     const formData = new FormData();
     formData.append("prompt", promptText);
     try {
       const response = await axios.post(
-        "https://dreamer-4rxj.onrender.com/text-generate-model/",
+        "https://dreamvison.onrender.com/text-generate-model/",
         promptData,
         { responseType: "blob" }
       );
@@ -56,6 +58,7 @@ export default function AIChatbot() {
     } catch (error) {
       console.error("Error uploading file", error);
     }
+    setIsLoading(false);
   };
 
   const downloadModel = () => {
@@ -100,7 +103,7 @@ export default function AIChatbot() {
                   className="techwave_fn_button"
                   onClick={generate3DModel}
                 >
-                  <span>Generate</span>
+                <span>{isLoading ? "Generating..." : "Generate"}</span>
                 </Link>
                 <button className="techwave_fn_button" onClick={downloadModel}>
                   Download
@@ -116,10 +119,12 @@ export default function AIChatbot() {
 
           <div className="generation_history">
             <div className="viewer_object">
-              {modelUrl && (
-                <div className="viewer3">
-                  <ModelViewer modelUrl={modelUrl} />
-                </div>
+            {isLoading ? (
+                <div id="loader"></div>
+              ) : (
+                modelUrl && (
+                    <ModelViewer modelUrl={modelUrl} />
+                )
               )}
             </div>
           </div>

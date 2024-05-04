@@ -1,4 +1,4 @@
-// File: C:\Users\Kurst\Downloads\Picture\TechWave-React-NextJs-V-0.1.2\TechWave-React-NextJs\app\image-generation\page.js
+// File: C:\Users\Kurst\Downloads\Azure\DreamVision\app\image-generation\page.js
 import * as entry from '../../../../app/image-generation/page.js'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
