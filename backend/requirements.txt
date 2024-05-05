@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]  # Uvicorn with "standard" extras includes `uvloop` and `httptools`
+httpx  # Recommended for async requests, if you are using in the future
+pydantic  # Data validation by using Pydantic models
+aiofiles  # For asynchronous file operations
+requests  # Used for making HTTP requests
+openai  # Assuming usage of OpenAI's API
+gradio  # For integrating Gradio, if you're using its interfa
