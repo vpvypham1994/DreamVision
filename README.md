@@ -1,4 +1,4 @@
-# DreamerDVision
+# DreamVision
 
 A web application to generate 3D model from text input fuel by Google Gemini A.I .
 
