@@ -6563,7 +6563,7 @@ a.fn__like.no_border .fn__svg{
 /*	65) Page: Intro
 /*------------------------------------------------------------------*/
 .techwave_fn_intro{
-	padding: 150px 20px 100px;
+	padding: 10px 20px 10px;
 	display: -webkit-flex;
 	display: -moz-flex;
 	display: -ms-flex;
@@ -6837,8 +6837,7 @@ a.fn__like.no_border .fn__svg{
 	margin-bottom: 91px;
 }
 #demos{
-	padding-top: 100px;
-	margin-bottom: 73px;
+	margin-bottom: 30px;
 }
 /*------------------------------------------------------------------*/
 /*	66) Media Queries (Responsive)
@@ -7140,26 +7139,41 @@ a.fn__like.no_border .fn__svg{
 
 .file-upload-container {
 	border-radius: 10px; /* Curved corners */
-	margin-top: 2em;
-    border: 2px solid #d3d3d3; /* Light grey border */
-    background-color: #f0f0f0; /* Grey background */
+    border: 2px solid #7c5fe3; /* Light grey border */
     padding: 4px;
     text-align: center;
     cursor: pointer;
+	overflow: hidden;
+	width: 100%;
+	height: 15rem;
+	border-style: dashed;
+	display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    position: relative; /* Positioning context for absolute children */
+	object-fit: contain; /* Keeps the aspect ratio and fits within the element */
+
 }
+
 
 .file-upload-container:hover {
-    background-color: #e0e0e0;
-}
+	background-color: #3e3a46;
+	border: 2px solid #7a62cf; /* Light grey border */
+	border-style: dashed;
+
+
+  }
 
 .file-upload-input {
-    width: 0.1px;
-    height: 0.1px;
-    opacity: 0;
+    width: 10px;
+    height: 10px;
     overflow: hidden;
     position: absolute;
     z-index: -1;
+	display:none
+
 }
+
 
 .file-upload-name {
     margin-top: 5px;
@@ -7168,24 +7182,28 @@ a.fn__like.no_border .fn__svg{
 }
 
 .image-preview-container {
-    margin-top: 15px;
-    display: flex;
+	width: 100%; /* Adjust the width as necessary */
+  	height: 100%; /* Adjust the height as necessary */
     justify-content: center; /* Center the image in the container */
+	overflow: hidden;
+	
+
 }
 
 .image-preview {
     border-radius: 10px; /* Round borders */
     max-width: 500px; /* Maximum width */
     max-height: 300px; /* Maximum height */
-    width: auto; /* Maintain aspect ratio */
-    height: auto; /* Maintain aspect ratio */
-    border: 2px solid #d3d3d3; /* Grey border */
+    width: 100%; /* Maintain aspect ratio */
+    height: 100%; /* Maintain aspect ratio */
+	object-fit: contain; /* Keeps the aspect ratio and fits within the element */
+
 }
 
 .viewer_object {
 	width: 96%;
-	height: 25em;
-	border: 1px solid grey;
+	height: 80vh;
+	border: 1px solid #7c5fe3;
 	border-radius: 8px;
 	box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 	margin: 2em;
@@ -7256,6 +7274,11 @@ a.fn__like.no_border .fn__svg{
 	margin-right: 0;
   }
 
+.spline{
+	width: 85%;
+	height: 60%;
+	margin-left: 9rem;
+}
 
 
   #loader {
@@ -7292,4 +7315,263 @@ a.fn__like.no_border .fn__svg{
 	to {
 		transform: rotate(495deg);
 	}
+}
+
+.loader {
+	width: 60px;
+  }
+  
+  .loader-wheel {
+	animation: spin 1s infinite linear;
+	border: 2px solid rgba(30, 30, 30, 0.5);
+	border-left: 4px solid #7c5fe3;
+	border-radius: 50%;
+	height: 100px;
+	margin-bottom: 10px;
+	width: 100px;
+  }
+  
+  .loader-text {
+	color: #7c5fe3;
+	font-size: 20px;
+	width: 100px;
+	font-weight: 600;
+	margin-left: .5rem;
+  }
+  
+  .loader-text:after {
+	content: 'Loading';
+	animation: load 2s linear infinite;
+  }
+  
+  @keyframes spin {
+	0% {
+	  transform: rotate(0deg);
+	}
+	100% {
+	  transform: rotate(360deg);
+	}
+  }
+  
+  @keyframes load {
+	0% {
+	  content: 'Loading';
+	}
+	33% {
+	  content: 'Loading.';
+	}
+	67% {
+	  content: 'Loading..';
+	}
+	100% {
+	  content: 'Loading...';
+	}
+  }
+
+.image-to-3D-container{
+	display: flex;
+	width: 100%;
+	height: 100vh;
+   
+}
+
+.generation_input{
+    flex: 0 0 20%; /* flex-grow: 0, flex-shrink: 0, flex-basis: 10% */
+	width: 5%;
+	position: relative; /* Needed for absolute positioning of the pseudo-element */
+    padding: 10px; /* Adds padding all around inside the first-div */
+
+
+}
+
+.generation_input::after {
+    content: ""; /* Required for pseudo-elements to display */
+    position: absolute; /* Positioning relative to the first-div */
+    right: 0; /* Aligns the line to the right edge of the first-div */
+    top: 0; /* Start from the top of the first-div */
+    bottom: 0; /* Extend to the bottom of the first-div */
+    width: .5px; /* Width of the line */
+    background-color: #3f3f3f; /* Color of the line, black here */
+}
+
+
+.generation_output{
+	flex: 1 1;
+}
+
+
+
+/* CSS */
+.button-24 {
+  background: #7c5fe3;
+  border: 1px solid #7c5fe3;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 550;
+  line-height: 16px;
+  min-height: 30px;
+  outline: 0;
+  padding: 8px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.button-24:hover,
+.button-24:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #7c5fe3;
+}
+
+.button-24:active {
+  opacity: .5;
+}
+
+/* CSS */
+.button-23 {
+	background: #7c5fe3;
+	border: 1px solid #7c5fe3;
+	border-radius: 6px;
+	box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+	box-sizing: border-box;
+	color: #FFFFFF;
+	cursor: pointer;
+	display: inline-block;
+	font-family: 'Work Sans', sans-serif;
+	font-size: 16px;
+	font-weight: 550;
+	line-height: 16px;
+	min-height: 30px;
+	outline: 0;
+	padding: 8px 14px;
+	text-align: center;
+	text-rendering: geometricprecision;
+	text-transform: none;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+	vertical-align: middle;
+	width: 30%;
+	margin-top: 1rem;
+	margin-left: 1rem;
+  }
+  
+  .button-23:hover,
+  .button-23:active {
+	background-color: initial;
+	background-position: 0 0;
+	color: #7c5fe3;
+  }
+  
+  .button-23:active {
+	opacity: .5;
+  }
+  
+
+.upload-text {
+    position: absolute;
+    color: #7c5fe3; /* Text color */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s; /* Smooth transition for the opacity */
+	font-weight: 600;
+}
+
+.file-upload-container:hover .upload-text {
+    opacity: 1; /* Show text when hovering */
+	
+}
+
+
+
+.file-upload-container:hover .image-preview-container{
+	opacity: .1;
+}
+
+.exmaple-images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates three columns */
+    grid-template-rows: repeat(2, 1fr); /* Creates two rows */
+    gap: 15px; /* Space between boxes */
+    width: 100%; /* Full width of the parent div */
+    height: 15rem; /* Adjust based on your needs */
+}
+
+.small-box {
+	border: 1px solid transparent;
+	border-color: #7c5fe3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px; /* Rounded corners like in the picture */
+}
+
+.small-box img {
+    width: 100%;  /* Makes the image fill the entire width of the grid item */
+    height: 100%; /* Makes the image fill the entire height of the grid item */
+    object-fit: cover; /* Ensures the image covers the area without distorting */
+	    border-radius: 10px; /* Rounded corners like in the picture */
+
+}
+
+.small-box:hover img{
+	opacity: .2;
+}
+
+.example-text {
+    position: absolute;
+    color: #7c5fe3; /* Text color */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s; /* Smooth transition for the opacity */
+	font-weight: 700;
+}
+
+
+.small-box:hover .example-text {
+    opacity: 1; /* Show text when hovering */	
+}
+
+.title{
+	margin-bottom: .5rem;
+	color: whitesmoke;
+	font-family: var(--techwave-heading-font-family);
+
+}
+
+.title2{
+	margin-top: 2rem;
+	color: whitesmoke;
+	font-family: var(--techwave-heading-font-family);
+
+}
+
+.generate_image_container{
+	margin-top: 1rem;
+	border: 1px solid transparent;
+
+	border-color: #7c5fe3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px; /* Rounded corners like in the picture */
+	overflow: hidden;
+
+}
+
+.generate_image_container img {
+    width: 100%;  /* Makes the image fill the entire width of the grid item */
+    height: 100%; /* Makes the image fill the entire height of the grid item */
+    object-fit: contain; /* Ensures the image covers the area without distorting */
 }

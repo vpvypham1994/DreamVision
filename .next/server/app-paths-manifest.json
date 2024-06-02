@@ -1,5 +1,0 @@
-{
-  "/page": "app/page.js",
-  "/ai-chat-bot/page": "app/ai-chat-bot/page.js",
-  "/image-generation/page": "app/image-generation/page.js"
-}

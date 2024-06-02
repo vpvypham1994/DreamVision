@@ -35,8 +35,8 @@ app.add_middleware(
 
 # OpenAI client configuration
 client = AzureOpenAI(
-    azure_endpoint="YOUR_ENDPOINT_URL",
-    api_key="YOUR_API_KEY",
+    azure_endpoint="g",
+    api_key="",
     api_version="2024-02-15-preview"
 )
 
@@ -126,25 +126,24 @@ async def create_upload_file(file: UploadFile = File(...)):
 
 
 # Modify existing endpoint to include the filter_prompt call
-@app.post("/text-generate-model/")
+@app.post("/text-generate-image/")
 async def process_image(prompt: Prompt):
     # First, filter the prompt for restricted content
-    filter_prompt(prompt.message)
+    # filter_prompt(prompt.message)
+    print(prompt)
 
     # Existing processing logic
-    new_prompt = enhance_prompt(prompt.message)
-    new_prompt2 = f'{new_prompt}. In addition, make sure that the background of the image is a single color. Finally, make sure the image is a full view shot of {prompt} and only contain {prompt}'
-    result = client.images.generate(
-        model="DallEImageGenerator",
-        prompt=new_prompt2,
-        n=1
-    )
-    image_url = json.loads(result.model_dump_json())['data'][0]['url']
+    # result = client.images.generate(
+    #     model="DallEImageGenerator",
+    #     prompt=prompt,
+    #     n=1
+    # )
+    # image_url = json.loads(result.model_dump_json())['data'][0]['url']
     filepath = "image.png"
-    download_and_save_image(image_url, filepath)
-    model_path = generate_3D_model()
-    delete_contents_of_output()
-    return FileResponse(model_path, media_type='application/octet-stream', filename="model.glb")
+    #download_and_save_image(image_url, filepath)
+    
+    # Return the image file instead of a 3D model
+    return FileResponse(filepath, media_type='image/png', filename="image.png")
 
 # Ensure all other endpoints where user input is accepted also call filter_prompt()
 @app.post("/image-generate-model-preloaded/")
