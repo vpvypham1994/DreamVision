@@ -14,11 +14,11 @@ function ModelViewer({ modelUrl }) {
   return (
     <Canvas colorManagement key={modelUrl}>
       <ambientLight intensity={2} />
-      <directionalLight position={[-20, 5, 2]} intensity={8} />
-      <directionalLight position={[20, 5, 2]} intensity={4} />
-      <directionalLight position={[0, 0, -1]} intensity={8} />
-      <directionalLight position={[0, 1, 0]} intensity={8} />
-      <directionalLight position={[0, -1, 0]} intensity={8} />
+      <directionalLight position={[-20, 5, 2]} intensity={2} />
+      <directionalLight position={[20, 5, 2]} intensity={2} />
+      <directionalLight position={[0, 0, -1]} intensity={2} />
+      <directionalLight position={[0, 1, 0]} intensity={2} />
+      <directionalLight position={[0, -1, 0]} intensity={2} />
 
       <Suspense fallback={null}>
       <primitive object={gltf.scene} position={[0, 0.1, 0]} scale={1} />

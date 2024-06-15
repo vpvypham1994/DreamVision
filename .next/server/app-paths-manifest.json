@@ -1,0 +1,6 @@
+{
+  "/intro/page": "app/intro/page.js",
+  "/image-generation/page": "app/image-generation/page.js",
+  "/home/page": "app/home/page.js",
+  "/ai-chat-bot/page": "app/ai-chat-bot/page.js"
+}

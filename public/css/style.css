@@ -7507,6 +7507,7 @@ a.fn__like.no_border .fn__svg{
     gap: 15px; /* Space between boxes */
     width: 100%; /* Full width of the parent div */
     height: 15rem; /* Adjust based on your needs */
+	margin-bottom: 1rem;
 }
 
 .small-box {

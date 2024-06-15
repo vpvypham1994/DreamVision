@@ -91,7 +91,7 @@ def enhance_prompt(original_prompt):
 
 def generate_3D_model(image='image.png'):
     print("Generate 3D model")
-    client = Client(src="TencentARC/InstantMesh",output_dir="")
+    client = Client(src="TencentARC/InstantMesh",download_files="C:/Users/Kurst/Downloads/DreamVision/backend/uploads/")
     result = client.predict(
             input_image=file(image),
             do_remove_background=True,
@@ -122,6 +122,7 @@ async def create_upload_file(file: UploadFile = File(...)):
             await out_file.write(content)
     model_path = generate_3D_model()
     delete_contents_of_output()
+    print(model_path)
     return FileResponse(model_path, media_type='application/octet-stream', filename="model.glb")
 
 
@@ -131,18 +132,15 @@ async def process_image(prompt: Prompt):
     # First, filter the prompt for restricted content
     # filter_prompt(prompt.message)
     print(prompt)
+    image_client = Client("ByteDance/SDXL-Lightning",download_files="C:/Users/Kurst/Downloads/DreamVision/backend/uploads/")
 
-    # Existing processing logic
-    # result = client.images.generate(
-    #     model="DallEImageGenerator",
-    #     prompt=prompt,
-    #     n=1
-    # )
-    # image_url = json.loads(result.model_dump_json())['data'][0]['url']
-    filepath = "image.png"
-    #download_and_save_image(image_url, filepath)
+    filepath = image_client.predict(
+            prompt=prompt.message,
+            ckpt="4-Step",
+            api_name="/generate_image"
+    )
+    print(filepath)
     
-    # Return the image file instead of a 3D model
     return FileResponse(filepath, media_type='image/png', filename="image.png")
 
 # Ensure all other endpoints where user input is accepted also call filter_prompt()
@@ -151,14 +149,13 @@ async def process_image_preloaded(prompt: Prompt):
     # Filter the prompt
     filter_prompt(prompt.message)
 
-    # Existing processing logic
-    image_url = prompt.message
-    if 'hrcaWF5.png' in image_url:
-        filepath = "hrcaWF5.png"
-    elif 'yJxca2L.png' in image_url:
-        filepath = 'yJxca2L.png'
-    else:
-        filepath = 'image.png'
+    image_client = Client("ByteDance/SDXL-Lightning",download_files="C:/Users/Kurst/Downloads/DreamVision/backend/uploads/")
+    filepath = image_client.predict(
+            prompt=prompt.message,
+            ckpt="8-Step",
+            api_name="/generate_image"
+    )
+    print(filepath)
     model_path = generate_3D_model(filepath)
     delete_contents_of_output()
     return FileResponse(model_path, media_type='application/octet-stream', filename="model.glb")
