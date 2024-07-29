@@ -1,6 +1,6 @@
 # DreamVision
 
-![alt text](https://hackster.imgix.net/uploads/attachments/1724042/untitled_design_368QWgT5SP.gif?auto=compress&gifq=35&w=740&h=555&fit=max&fm=mp4)
+![alt text](https://hackster.imgix.net/uploads/attachments/1721961/pink_minimalist_wellness_tips_infographic_Omnupbw1Gq.png?auto=compress%2Cformat&w=740&h=555&fit=max)
 
 A web application to generate 3D model from image or text input running on AMD Radeon Pro W7900 with ROCM 6.1
 
