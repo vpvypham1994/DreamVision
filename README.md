@@ -1,43 +1,62 @@
 # DreamVision
-## _The Last Markdown Editor, Ever_
+
+A web application to generate 3D model from text input fuel by Google Gemini A.I .
+
+## Installation
+
+To start the react frontend do as follow.
+
+```bash
+#start at root folder
+npm install
+npm run dev
+```
+
+To start the FASTAPI backend end do as follow
+```bash
+#start at root folder
+cd backend
+pip install -r requirements.txt
+```
+Then add your Azure OpenAI API key and enpoind url
+```python
+client = AzureOpenAI(
+    azure_endpoint="YOUR_ENDPOINT_URL", #replace with your endpoint
+    api_key="YOUR_API_KEY", #replace with your API key
+    api_version="2024-02-15-preview"
+)
+```
+Finally start the backend server 
+```bash
+uvicorn main:app --reload
+```
+Get your API key at https://azure.microsoft.com/en-us/solutions/ai if you do not have one 
 
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+## Testing Procedure 
 
-Code coming soon.
+**Testing Text-to-3D**
+1. Open the web application link: https://dreamvision-olive.vercel.app
+2. Click on the Text-to-3D card
+3. Input a brief description of an object you want to generate in the box below "Input A Description". Re generate if result is unsatisfactory.
+Example : "A white wolf standing"
+4. Click the Generate Button
+5. Wait around 2 minutes for the model to do it magic
+6. After 2 minutes, a 3D model should appear in the big black box at the bottom
+7. Click download button to save the generated model in .glb format
 
+ **Testing Image-to-3D**
+1. Open the web application link: https://dreamvision-olive.vercel.app
+2. Click the Image-to-3D tab on the sidebar on the left
+3. Select the Image of the donut 
+4. Click the Generate button
+5. After 2 minutes there should be a 3D model of a donut appear in the black box
+6. (Optional): Upload your own image and click the generate button, make sure the image is a single object with single color background. A 3D model of your image should appear in 2 minutes.
 
-## Features
+## Hosting option
 
-- Image to 3D Model Generation
-- Text to 3D Model Generation
-
+Recommend to host the react app on vercelc.com and backend on render.com
 
 ## License
 
-MIT
-
-**Free Software, Hell Yeah!**
-
-[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
-
-   [dill]: <https://github.com/joemccann/dillinger>
-   [git-repo-url]: <https://github.com/joemccann/dillinger.git>
-   [john gruber]: <http://daringfireball.net>
-   [df1]: <http://daringfireball.net/projects/markdown/>
-   [markdown-it]: <https://github.com/markdown-it/markdown-it>
-   [Ace Editor]: <http://ace.ajax.org>
-   [node.js]: <http://nodejs.org>
-   [Twitter Bootstrap]: <http://twitter.github.com/bootstrap/>
-   [jQuery]: <http://jquery.com>
-   [@tjholowaychuk]: <http://twitter.com/tjholowaychuk>
-   [express]: <http://expressjs.com>
-   [AngularJS]: <http://angularjs.org>
-   [Gulp]: <http://gulpjs.com>
-
-   [PlDb]: <https://github.com/joemccann/dillinger/tree/master/plugins/dropbox/README.md>
-   [PlGh]: <https://github.com/joemccann/dillinger/tree/master/plugins/github/README.md>
-   [PlGd]: <https://github.com/joemccann/dillinger/tree/master/plugins/googledrive/README.md>
-   [PlOd]: <https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md>
-   [PlMe]: <https://github.com/joemccann/dillinger/tree/master/plugins/medium/README.md>
-   [PlGa]: <https://github.com/RahulHP/dillinger/blob/master/plugins/googleanalytics/README.md>
+[MIT](https://choosealicense.com/licenses/mit/)

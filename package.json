@@ -1,0 +1,28 @@
+{
+  "name": "techwave-nextjs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.16",
+    "@mantine/core": "^7.6.2",
+    "@mantine/hooks": "^7.6.2",
+    "@react-three/drei": "^9.102.6",
+    "@react-three/fiber": "^8.15.19",
+    "axios": "^1.6.8",
+    "eslint": "8.46.0",
+    "eslint-config-next": "13.4.12",
+    "isotope-layout": "^3.0.6",
+    "next": "^13.5.6",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "screenfull": "^6.0.2",
+    "three": "^0.162.0",
+    "waypoints": "^4.0.1"
+  }
+}
